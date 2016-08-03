@@ -1,8 +1,8 @@
 {
-  "name": "cedar-alert",
+  "name": "fs-alert",
   "version": "1.0.1",
   "description": "FamilySearch alert web component",
-  "main": "cedar-alert.html",
+  "main": "fs-alert.html",
   "license": "MIT",
   "ignore": [
     "/.*",
