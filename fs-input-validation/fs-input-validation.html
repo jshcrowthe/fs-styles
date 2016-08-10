@@ -1,19 +1,21 @@
 <link rel="import" href="../../polymer/polymer.html">
 
 <!--
-A comment describing this element
+A input validation wrapper that models the FamilySearch styleguide.
+
+This web component will render a wrapper around a `input[type='text']` with a styleguide approved validation status.
+
+You can specify the text body of the `valid`/`invalid` states by creating a node with the `valid-text`/`invalid-text` attributes (respectively).
 
 Example:
 
-    <my-elem></my-elem>
+    <fs-input-validation>
+      <input type="text" />
+      <p valid-text>This is valid</p>
+      <p invalid-text>This is invalid</p>
+    </fs-input-validation>
 
-Example:
-
-    <my-elem>
-      <h2>Hello my-elem</h2>
-    </my-elem>
-
-@demo demo/index.html
+@demo fs-input-validation/demo/index.html
 -->
 
 <dom-module id="fs-input-validation">
@@ -89,11 +91,16 @@ Example:
     Polymer({
       is: 'fs-input-validation',
       properties: {
+        /**
+         * The status of the validated input[type=text] field.
+         *
+         * Valid values for this are: `valid` or `invalid`.
+         * @type {String}
+         */
         status: {
           type: String,
           value: '',
-          reflectToAttribute: true,
-          notify: true
+          reflectToAttribute: true
         }
       },
       _isValid: function(status) {

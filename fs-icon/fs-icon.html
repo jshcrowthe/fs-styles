@@ -1,19 +1,22 @@
 <link rel="import" href="../../polymer/polymer.html">
 
 <!--
-A comment describing this element
+An element that will render an icon from the FamilySearch styleguide
 
 Example:
 
-    <my-elem></my-elem>
+    <fs-icon icon='spinner'></fs-icon>
 
 Example:
 
-    <my-elem>
-      <h2>Hello my-elem</h2>
-    </my-elem>
+    <fs-icon icon='female-dot' size='small'></fs-icon>
 
-@demo demo/index.html
+Example:
+
+    <fs-icon icon='close' size='large'></fs-icon>
+
+
+@demo fs-icon/demo/index.html
 -->
 
 <dom-module id="fs-icon">
@@ -150,6 +153,22 @@ Example:
     Polymer({
       is: 'fs-icon',
       properties: {
+        /**
+         * The size of the icon.
+         *
+         * Valid values are `large` and `small`. _To get the default behavior simply omit this property_.
+         * @type {String}
+         */
+        size: {
+          type: String,
+          reflectToAttribute: true,
+        },
+        /**
+         * The icon to be rendered.
+         *
+         * _For a complete list of the different icons available, please see the demo!_
+         * @type {String}
+         */
         icon: {
           type: String,
           reflectToAttribute: true
