@@ -2,19 +2,13 @@
 <link rel="import" href="../fs-icon/fs-icon.html">
 
 <!--
-A comment describing this element
+A type extension button modeled after the FamilySearch styleguide
 
 Example:
 
-    <my-elem></my-elem>
+    <button is='fs-button'>Button Text!</button>
 
-Example:
-
-    <my-elem>
-      <h2>Hello my-elem</h2>
-    </my-elem>
-
-@demo demo/index.html
+@demo fs-button/demo/index.html
 -->
 
 <dom-module id="fs-button">
@@ -273,6 +267,10 @@ Example:
           reflectToAttribute: true
         }
       },
+      /**
+       * Computes the spinner that needs to be used for the button
+       * @param  {String} option 
+       */
       _spinnerType(option) {
         if (option === 'recommended' || option === 'destructive') return 'spinner-light';
         return 'spinner';

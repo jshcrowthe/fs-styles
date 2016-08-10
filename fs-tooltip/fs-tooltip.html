@@ -1,17 +1,17 @@
 <link rel="import" href="../../polymer/polymer.html">
 
 <!--
+A tooltip that models the FamilySearch styleguide.
+
 Example:
-   When the user hovers over the element the
-   text attribute will populate the tooltip
-   and the direction attribute will tell it
-   where to display.
+
     <fs-tooltip text="Click Me" direction="top">
       <button>Hover</button>
     </fs-tooltip>
+
 @group Seed Elements
 @element fs-tooltip
-@demo demo/index.html
+@demo fs-tooltip/demo/index.html
 -->
 <dom-module id="fs-tooltip">
   <template>
@@ -136,14 +136,14 @@ Example:
         reflectToAttribute: true
       },
       /**
-       *  The string that will be shown in the tooltip, if left
+       * The string that will be shown in the tooltip, if left
        * null the tooltip will be hidden
        * 
        * @type {String}
        */
       text: {
         type: String,
-        value: null
+        value: ''
       }
     }
   });

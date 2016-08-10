@@ -1,19 +1,17 @@
 <link rel="import" href="../../polymer/polymer.html">
 
 <!--
-A comment describing this element
+A simple FamilySearch badge style
 
 Example:
 
-    <my-elem></my-elem>
+    <fs-badge>3</fs-badge>
 
 Example:
 
-    <my-elem>
-      <h2>Hello my-elem</h2>
-    </my-elem>
+    <fs-badge option='light'>5</fs-badge>
 
-@demo demo/index.html
+@demo fs-badge/demo/index.html
 -->
 
 <dom-module id="fs-badge">
@@ -45,6 +43,12 @@ Example:
     Polymer({
       is: 'fs-badge',
       properties: {
+        /**
+         * The rendering type of the badge
+         *
+         * _Only valid option is currently `light`_
+         * @type {String}
+         */
         option: {
           type: String,
           reflectToAttribute: true
