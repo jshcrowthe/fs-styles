@@ -101,6 +101,14 @@ Example:
         width: 100%;
         height: 100%;
       }
+
+      a:visited {
+        color: blue;
+      }
+
+      a {
+        text-decoration: none;
+      }
     </style>
     <div class='fs-person__container'>
       <div class="fs-person-portrait" hidden='[[inline]]'>
@@ -114,11 +122,20 @@ Example:
         <div class="fs-person-vitals">
           <div class='v-center'>
             <fs-icon class='fs-person-gender__icon' icon='[[gender]]-dot' size='small' hidden='[[!_showGenderDot(inline, showPortrait, gender, orientation)]]'></fs-icon>
-            <p class='fs-person-vitals__name' hidden='[[_isPortrait(orientation)]]'>[[fullName]]</p>
-            <p class='fs-person-vitals__name' hidden='[[!_isPortrait(orientation)]]'>
-              <span>[[_getFirstName(firstName, lastName, nameSystem)]]</span>
-              <span>[[_getLastName(firstName, lastName, nameSystem)]]</span>
-            </p>
+            <span hidden="[[!destination]]">
+              <a href="[[destination]]" class='fs-person-vitals__name' hidden='[[_isPortrait(orientation)]]'>[[fullName]]</a>
+              <a href="[[destination]]" class='fs-person-vitals__name' hidden='[[!_isPortrait(orientation)]]'>
+                <span>[[_getFirstName(firstName, lastName, nameSystem)]]</span>
+                <span>[[_getLastName(firstName, lastName, nameSystem)]]</span>
+              </a>
+            </span>
+            <span hidden="[[destination]]">
+              <p class='fs-person-vitals__name' hidden='[[_isPortrait(orientation)]]'>[[fullName]]</p>
+              <p class='fs-person-vitals__name' hidden='[[!_isPortrait(orientation)]]'>
+                <span>[[_getFirstName(firstName, lastName, nameSystem)]]</span>
+                <span>[[_getLastName(firstName, lastName, nameSystem)]]</span>
+              </p>
+            </span>
           </div>
           <div class$='fs-person-details__container [[_getDetailsClass(inline, showPortrait, gender, orientation)]]'>
             <span>[[lifespan]]</span>
@@ -238,11 +255,22 @@ Example:
           type: Boolean,
           value: false,
           reflectToAttribute: true
+        },
+
+        /** 
+        * Optional navigation to take place by clicking on name
+        * @type {String}
+        */
+        destination: {
+          type: String,
+          value: ''
         }
+
       },
       observers: [
         '_portraitDefault(showPortrait, orientation)'
       ],
+
       _and: function(a, b) {
         return a && b;
       },
